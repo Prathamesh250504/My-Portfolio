@@ -11,8 +11,8 @@ export const Experience = () => {
       type: "Internship",
       duration: "June 30 – July 6, 2025",
       location: "Remote",
-      status: "Upcoming",
-      description: "Upcoming Python development internship focusing on hands-on practical exposure to real-world development scenarios and industry best practices.",
+      status: "Completed",
+      description: "Completed Python development internship with hands-on practical exposure to real-world development scenarios and industry best practices.",
       highlights: [
         "Python development with hands-on practical exposure",
         "Working on real-world development projects",
