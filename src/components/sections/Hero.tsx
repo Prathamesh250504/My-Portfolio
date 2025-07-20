@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Download, ExternalLink, Mail, Code, Sparkles } from "lucide-react";
-import heroImage from "/lovable-uploads/8649601b-c85a-4261-bb8d-7d17fbca2855.png";
+import heroImage from "/lovable-uploads/20f31851-7a8c-46f4-a907-5d2962277b87.png";
 
 export const Hero = () => {
   return (
