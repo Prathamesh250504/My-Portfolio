@@ -90,7 +90,7 @@ export const Navigation = () => {
                 className={`text-sm font-medium transition-colors hover:text-primary relative ${
                   activeSection === item.id 
                     ? "text-primary" 
-                    : "text-muted-foreground"
+                    : "text-foreground/70"
                 }`}
               >
                 {item.label}
