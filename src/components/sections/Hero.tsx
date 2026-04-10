@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Download, ExternalLink, Mail, Code, Sparkles } from "lucide-react";
-import heroImage from "/lovable-uploads/20f31851-7a8c-46f4-a907-5d2962277b87.png";
+import heroImage from "@/assets/hero-image.jpg";
 
 export const Hero = () => {
   return (
@@ -35,7 +35,7 @@ export const Hero = () => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-background mb-6 leading-tight">
               <span className="block">Prathamesh</span>
               <span className="bg-gradient-accent bg-clip-text text-transparent inline-flex items-center gap-3">
-                Ravindra Pabe
+                Pabe
                 <Code className="w-8 h-8 md:w-10 md:h-10 text-primary-glow animate-pulse" />
               </span>
             </h1>
@@ -55,18 +55,35 @@ export const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <Button variant="accent" size="lg" className="group relative overflow-hidden">
+              <Button
+                variant="accent"
+                size="lg"
+                className="group relative overflow-hidden px-12 min-w-[220px]"
+                onClick={() => {
+                  const section = document.getElementById('projects');
+                  if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 <ExternalLink className="mr-2 group-hover:rotate-12 transition-transform duration-300" />
                 View Projects
               </Button>
               
-              <Button variant="glass" size="lg" className="group relative">
+              <Button variant="glass" size="lg" className="group relative" onClick={() => {
+                window.open('https://drive.google.com/uc?export=download&id=1hcAJn5XgE9zNzvdhf8xF70uU4xjAtPfM', '_blank');
+              }}>
                 <Download className="mr-2 group-hover:animate-bounce" />
                 Download Resume
               </Button>
               
-              <Button variant="outline" size="lg" className="group relative border-background/30 hover:border-background/50">
+              <Button variant="outline" size="lg" className="group relative border-background/30 hover:border-background/50" onClick={() => {
+                const section = document.getElementById('contact');
+                if (section) {
+                  section.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}>
                 <Mail className="mr-2 group-hover:scale-110 transition-transform duration-300" />
                 Contact Me
               </Button>

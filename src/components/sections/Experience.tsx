@@ -20,17 +20,18 @@ export const Experience = () => {
         "Collaborative development environment"
       ],
       technologies: ["Python", "Software Development", "Industry Practices"],
-      icon: Code
+      icon: Code,
+      certificateLink: "https://drive.google.com/file/d/1wVK7SzMeAha8IW5fb84xIIjI0vPkgtlw/view?usp=sharing",
     },
     {
       id: 2,
       title: "AI & ML Intern",
-      company: "TechCorp Solutions",
+      company: "YBI Foundation",
       type: "Internship",
       duration: "October 2024 (1 Month)",
-      location: "Hybrid",
+      location: "Remote",
       status: "Completed",
-      description: "Completed a comprehensive AI & ML internship focusing on machine learning algorithms, data preprocessing, and model development.",
+      description: "Completed a comprehensive AI & ML internship focusing on machine learning algorithms, data preprocessing and model development.",
       highlights: [
         "Hands-on experience with ML algorithms",
         "Data preprocessing and analysis",
@@ -38,7 +39,46 @@ export const Experience = () => {
         "Real-world AI project implementation"
       ],
       technologies: ["Python", "Machine Learning", "Data Science", "TensorFlow"],
-      icon: Building
+      icon: Building,
+      certificateLink: "https://drive.google.com/file/d/1TbfPv_6iTihq4dzWX7lkcln03oUJKTyR/view?usp=sharing",
+    },
+    {
+      id: 3,
+      title: "Internship Trainee",
+      company: "Get AnalyticX",
+      type: "Internship",
+      duration: "30 June 2025 – 30 July 2025 (1 Month)",
+      location: "Remote",
+      status: "Completed",
+      description: "Completed a 1-month internship at Get AnalyticX, gaining practical exposure and hands-on experience in the designated domain.",
+      highlights: [
+        "Assisting with assigned tasks in the designated domain",
+        "Attending regular update meetings",
+        "Submitting a final report/project at the end of the internship"
+      ],
+      technologies: ["Analytics", "Teamwork", "Reporting"],
+      icon: Building,
+      certificateLink: "https://drive.google.com/file/d/1qNG83AMa5-hsaLAwiS5hPeeK3tKM7e3n/view?usp=drive_link",
+      offerLetterLink: "https://drive.google.com/file/d/1kTPp-JBLbj1lvSV2i_nQ0gapz55BV6i5/view?usp=sharing",
+    },
+    {
+      id: 4,
+      title: "Infosys Springboard Internship 6.0 (B-11) Intern",
+      company: "Infosys Springboard",
+      type: "Virtual Internship",
+      duration: "December 22, 2025 – February 25, 2026",
+      location: "Remote",
+      status: "Completed",
+      description: "Completed Infosys Springboard Internship 6.0 (B 11) focused on building an AI-powered dynamic media content generation platform. Gained hands-on experience with AI/ML concepts and real-world content generation workflows.",
+      highlights: [
+        "Completed mandatory assignments for AI-Powered Dynamic Media Content Generation",
+        "Hands-on exposure to AI-driven content generation workflows",
+        "Worked under Infosys Springboard's structured virtual internship program",
+        "Certificate issued by Satheesha B. Nanjappa, SVP & Head — Education, Training and Assessment, Infosys Limited"
+      ],
+      technologies: ["AI", "LLM", "Machine Learning", "Content Generation", "Media Processing"],
+      icon: Building,
+      certificateLink: "https://drive.google.com/file/d/1kYh_BUdOZFumb5gPFpfTMv7oQTKb0Gav/view?usp=drive_link",
     }
   ];
 
@@ -151,6 +191,21 @@ export const Experience = () => {
                             ))}
                           </div>
                         </div>
+                        {/* Certificate / Offer Letter Links */}
+                        {(exp.certificateLink || exp.offerLetterLink) && (
+                          <div className="mt-4 flex flex-wrap gap-3">
+                            {exp.offerLetterLink && (
+                              <a href={exp.offerLetterLink} target="_blank" rel="noopener noreferrer" className="text-primary underline font-medium">
+                                View Offer Letter
+                              </a>
+                            )}
+                            {exp.certificateLink && (
+                              <a href={exp.certificateLink} target="_blank" rel="noopener noreferrer" className="text-primary underline font-medium">
+                                View Certificate
+                              </a>
+                            )}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </CardContent>
@@ -167,7 +222,7 @@ export const Experience = () => {
               Ready for New Opportunities
             </h3>
             <p className="text-muted-foreground mb-6">
-              I'm actively seeking internships and entry-level positions in AI/ML, Data Science, and Software Development. 
+              I'm actively seeking internships and entry-level positions in AI/ML, Data Science and Software Development. 
               Let's connect and explore how I can contribute to your team!
             </p>
           </div>

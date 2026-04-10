@@ -1,0 +1,22 @@
+services:
+  # Backend API
+  - type: web
+    name: portfolio-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: MONGO_URI
+        sync: false   # set manually in Render dashboard
+      - key: ALLOWED_ORIGIN
+        sync: false   # set to your frontend URL after deploying frontend
+
+  # Frontend (static site)
+  - type: static
+    name: portfolio-frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false   # set to your backend URL after deploying backend

@@ -22,8 +22,7 @@ export const Skills = () => {
         { name: "Node.js", level: 80 },
         { name: "MongoDB", level: 75 },
         { name: "HTML/CSS", level: 90 },
-        { name: "JavaScript", level: 85 },
-        { name: "REST APIs", level: 80 }
+        { name: "JavaScript", level: 85 }
       ]
     },
     {
@@ -34,8 +33,7 @@ export const Skills = () => {
         { name: "Python", level: 90 },
         { name: "JavaScript", level: 85 },
         { name: "Java", level: 70 },
-        { name: "SQL", level: 75 },
-        { name: "C++", level: 65 }
+        { name: "SQL", level: 75 }
       ]
     },
     {
@@ -143,9 +141,9 @@ export const Skills = () => {
           
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
             {[
-              "Express.js", "JWT Authentication", "Mongoose", "Bootstrap", "Tailwind CSS", 
-              "NumPy", "Pandas", "Matplotlib", "SSD MobileNet", "MERN Stack",
-              "RESTful APIs", "MVC Architecture", "Form Validation", "Dynamic Routing"
+              "Express.js", "JWT Authentication", "Bootstrap", "Tailwind CSS", 
+              "NumPy", "Pandas", "Matplotlib", "SSD MobileNet",
+              "RESTful APIs", "Form Validation", "Dynamic Routing"
             ].map((tech, index) => (
               <Badge 
                 key={tech} 

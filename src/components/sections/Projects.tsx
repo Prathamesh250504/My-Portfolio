@@ -19,7 +19,8 @@ export const Projects = () => {
         "Responsive design"
       ],
       type: "Full-Stack Web Application",
-      status: "Completed"
+      status: "Completed",
+      github: "https://github.com/Prathamesh250504/Project-Review-Platform"
     },
     {
       id: 2,
@@ -35,7 +36,68 @@ export const Projects = () => {
         "Configurable detection parameters"
       ],
       type: "Computer Vision / AI",
-      status: "Completed"
+      status: "Completed",
+      github: "https://github.com/Prathamesh250504/CCTV-Camera-Human-Detection"
+    },
+    {
+      id: 3,
+      title: "Visage AI",
+      description: "An AI-powered skincare analysis platform that uses trained CNN models to analyze facial images from three angles (left, right, front) and detect skin condition, skin type, skin tone, pores, pigmentation, and dark circles. Combines computer vision with a personalized quiz, product recommendations, and Ayurvedic content to deliver a complete skincare journey.",
+      technologies: ["React", "Firebase", "Python", "FastAPI", "TensorFlow", "MongoDB", "OpenCV", "Framer Motion", "Tailwind CSS"],
+      features: [
+        "Multi-angle CNN facial analysis (skin condition, type, tone, pores, pigmentation, dark circles)",
+        "Face landmark detection with OpenCV and quality scoring",
+        "Personalized skincare quiz with AI-generated analysis saved to MongoDB",
+        "Budget-based product recommendation system with OpenAI integration",
+        "Skin reports dashboard with analysis history, quiz history, and combined final reports",
+        "Skincare streak tracker synced across localStorage and MongoDB",
+        "Ayurveda blog, DIY remedies guide, and Skin Essentials educational section",
+        "Firebase authentication (email/password + Google OAuth + password reset)",
+        "Protected routes with persistent session management",
+        "3 more features..."
+      ],
+      type: "AI / Full-Stack Web Application",
+      status: "Completed",
+      github: "https://github.com/Prathamesh250504/Prathamesh250504-visage-ai-prathamesh-and-sanika",
+      featured: true
+    },
+    {
+      id: 4,
+      title: "AI Content Creator",
+      description: "A full-stack AI-powered content generation platform for creating, analyzing, and optimizing content across multiple formats. Features multi-model LLM integration, real-time quality analysis, A/B testing, batch processing, and a rich template library — all backed by a secure user authentication system.",
+      technologies: ["React", "Python", "Flask", "MongoDB", "OpenRouter API", "Tailwind CSS", "JWT", "Google OAuth", "spaCy", "Chart.js", "Framer Motion"],
+      features: [
+        "Multi-model AI generation (GPT-OSS-20B, Llama 3.3 70B, Gemma 2 27B, Hermes 3 405B) with automatic fallback",
+        "Content quality analysis — readability, sentiment, engagement, and keyword density scoring",
+        "A/B testing with statistical significance and AI-powered winner prediction",
+        "Batch processing with queue management and rate limiting",
+        "Content enhancement engine — tone adjustment, length modification, style refinement",
+        "Custom prompt template builder with variable support",
+        "User authentication with JWT and Google OAuth 2.0"
+      ],
+      type: "Full-Stack Web Application / AI SaaS",
+      status: "Completed",
+      github: "https://github.com/Prathamesh250504/AI-Content-Creator-2026",
+      liveUrl: "https://ai-content-creator-2026.netlify.app/"
+    },
+    {
+      id: 5,
+      title: "SevaSutra",
+      description: "A comprehensive offline-first Progressive Web App (PWA) designed for community healthcare field workers to conduct household health surveys in rural India. Features AI-powered data validation, real-time synchronization, bilingual support (English/Marathi), voice-to-text input, GPS capture, and a full admin analytics dashboard — all optimized for low-connectivity, mobile-first field conditions.",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Supabase", "Zustand", "React Query", "Framer Motion", "Recharts", "PWA", "IndexedDB", "i18next", "PostgreSQL"],
+      features: [
+        "Offline-first architecture with IndexedDB, auto background sync, and exponential backoff retry",
+        "AI-powered data validation with real-time quality scoring (0–100) and field-level issue detection",
+        "Multi-step survey form — health screening, GPS capture, photo, voice-to-text, BMI auto-calculation",
+        "Role-based access control (Admin, Supervisor, Field Worker) with PostgreSQL Row-Level Security",
+        "Admin analytics dashboard — 14-day trends, worker leaderboard, geographic coverage, CSV export",
+        "Bilingual support (English / Marathi) with 400+ translation keys and runtime language toggle",
+        "Installable PWA with Workbox offline caching, push notifications, and mobile-native navigation"
+      ],
+      type: "Healthcare PWA / Field Survey Platform",
+      status: "Completed",
+      github: "https://github.com/Prathamesh250504/sevasutra-ai-bilingual-health-data-platform",
+      liveUrl: "https://seva-sutra-2026.lovable.app"
     }
   ];
 
@@ -53,7 +115,6 @@ export const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             My <span className="bg-gradient-primary bg-clip-text text-transparent">Projects</span>
@@ -63,11 +124,90 @@ export const Projects = () => {
           </p>
         </div>
 
-        {/* Projects Grid */}
         <div className="grid lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <Card 
-              key={project.id} 
+        {/* Featured Project */}
+          {projects.filter(p => p.featured).map((project) => (
+            <Card
+              key={project.id}
+              className="lg:col-span-2 relative bg-gradient-card border-2 border-primary/40 shadow-elegant hover:shadow-elegant transition-all duration-500 hover:scale-[1.01] group animate-fade-in-up overflow-hidden"
+            >
+              {/* Glow background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-purple-500/5 pointer-events-none" />
+
+              <CardHeader className="pb-4">
+                <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
+                  <div className="flex items-center gap-3">
+                    <CardTitle className="text-2xl font-display font-bold text-foreground group-hover:text-primary transition-colors">
+                      {project.title}
+                    </CardTitle>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-yellow-400 to-orange-400 text-white shadow-sm">
+                      ⭐ Major B.E. Project
+                    </span>
+                  </div>
+                  <Badge className={`${getStatusColor(project.status)} border font-medium`}>
+                    {project.status}
+                  </Badge>
+                </div>
+                <Badge variant="outline" className="w-fit text-xs">
+                  {project.type}
+                </Badge>
+              </CardHeader>
+
+              <CardContent className="space-y-6">
+                <p className="text-muted-foreground leading-relaxed text-base">
+                  {project.description}
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-medium text-foreground mb-3">Technologies Used</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech) => (
+                        <Badge key={tech} variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-medium text-foreground mb-3">Key Features</h4>
+                    <ul className="space-y-2">
+                      {project.features.slice(0, 5).map((feature, idx) => (
+                        <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0"></div>
+                          {feature}
+                        </li>
+                      ))}
+                      {project.features.length > 5 && (
+                        <li className="text-sm text-muted-foreground italic">
+                          + {project.features.length - 5} more features...
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="flex gap-3 pt-2">
+                  <Button variant="default" size="sm" className="flex-1 group" onClick={() => window.open(project.github, '_blank')}>
+                    <Eye className="mr-2 w-4 h-4 group-hover:scale-110 transition-transform" />
+                    View Details
+                  </Button>
+                  <Button variant="outline" size="sm" className="group" onClick={() => window.open(project.github, '_blank')}>
+                    <Github className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                  </Button>
+                  <Button variant="outline" size="sm" className="group" disabled={!project.liveUrl} onClick={() => project.liveUrl && window.open(project.liveUrl, '_blank')}>
+                    <ExternalLink className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+
+          {/* Other Projects */}
+          {projects.filter(p => !p.featured).map((project, index) => (
+            <Card
+              key={project.id}
               className="bg-gradient-card border shadow-card hover:shadow-elegant transition-all duration-500 hover:scale-[1.02] group animate-fade-in-up"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
@@ -80,19 +220,16 @@ export const Projects = () => {
                     {project.status}
                   </Badge>
                 </div>
-                
                 <Badge variant="outline" className="w-fit text-xs">
                   {project.type}
                 </Badge>
               </CardHeader>
 
               <CardContent className="space-y-6">
-                {/* Description */}
                 <p className="text-muted-foreground leading-relaxed">
                   {project.description}
                 </p>
 
-                {/* Technologies */}
                 <div>
                   <h4 className="font-medium text-foreground mb-3">Technologies Used</h4>
                   <div className="flex flex-wrap gap-2">
@@ -104,7 +241,6 @@ export const Projects = () => {
                   </div>
                 </div>
 
-                {/* Key Features */}
                 <div>
                   <h4 className="font-medium text-foreground mb-3">Key Features</h4>
                   <ul className="space-y-2">
@@ -122,18 +258,15 @@ export const Projects = () => {
                   </ul>
                 </div>
 
-                {/* Action Buttons */}
                 <div className="flex gap-3 pt-4">
-                  <Button variant="default" size="sm" className="flex-1 group">
+                  <Button variant="default" size="sm" className="flex-1 group" onClick={() => window.open(project.github, '_blank')}>
                     <Eye className="mr-2 w-4 h-4 group-hover:scale-110 transition-transform" />
                     View Details
                   </Button>
-                  
-                  <Button variant="outline" size="sm" className="group">
+                  <Button variant="outline" size="sm" className="group" onClick={() => window.open(project.github, '_blank')}>
                     <Github className="w-4 h-4 group-hover:rotate-12 transition-transform" />
                   </Button>
-                  
-                  <Button variant="outline" size="sm" className="group">
+                  <Button variant="outline" size="sm" className="group" disabled={!project.liveUrl} onClick={() => project.liveUrl && window.open(project.liveUrl, '_blank')}>
                     <ExternalLink className="w-4 h-4 group-hover:rotate-12 transition-transform" />
                   </Button>
                 </div>
@@ -142,12 +275,13 @@ export const Projects = () => {
           ))}
         </div>
 
-        {/* View More Projects */}
         <div className="text-center mt-12 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-          <Button variant="hero" size="lg" className="group">
-            <Github className="mr-2 group-hover:rotate-12 transition-transform" />
-            View All Projects on GitHub
-          </Button>
+          <a href="https://github.com/Prathamesh250504?tab=repositories" target="_blank" rel="noopener noreferrer">
+            <Button variant="hero" size="lg" className="group">
+              <Github className="mr-2 group-hover:rotate-12 transition-transform" />
+              View All Projects on GitHub
+            </Button>
+          </a>
         </div>
       </div>
     </section>

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,6 +16,29 @@ import {
 } from "lucide-react";
 
 export const Contact = () => {
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", subject: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error();
+      setStatus("success");
+      setForm({ firstName: "", lastName: "", email: "", subject: "", message: "" });
+    } catch {
+      setStatus("error");
+    }
+  };
   const contactInfo = [
     {
       icon: Phone,
@@ -27,28 +51,28 @@ export const Contact = () => {
       icon: Mail,
       label: "Email",
       value: "prathameshpabe@gmail.com",
-      href: "mailto:prathameshpabe@gmail.com",
+      href: "https://mail.google.com/mail/?view=cm&to=prathameshpabe@gmail.com&su=Let's Connect",
       color: "bg-red-500"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       value: "Connect with me",
-      href: "https://linkedin.com/in/prathameshpabe",
+      href: "https://linkedin.com/in/prathamesh-pabe-800109285",
       color: "bg-blue-600"
     },
     {
       icon: Github,
       label: "GitHub",
       value: "View my code",
-      href: "https://github.com/prathameshpabe",
+      href: "https://github.com/prathamesh250504",
       color: "bg-gray-800"
     },
     {
       icon: Instagram,
       label: "Instagram",
       value: "Follow me",
-      href: "https://instagram.com/prathameshpabe",
+      href: "https://instagram.com/prathamesh_25_04",
       color: "bg-pink-500"
     }
   ];
@@ -80,7 +104,7 @@ export const Contact = () => {
                 </h3>
               </div>
 
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="firstName" className="text-foreground font-medium">
@@ -89,6 +113,9 @@ export const Contact = () => {
                     <Input 
                       id="firstName" 
                       placeholder="John"
+                      value={form.firstName}
+                      onChange={handleChange}
+                      required
                       className="border-border focus:border-primary transition-colors"
                     />
                   </div>
@@ -99,6 +126,8 @@ export const Contact = () => {
                     <Input 
                       id="lastName" 
                       placeholder="Doe"
+                      value={form.lastName}
+                      onChange={handleChange}
                       className="border-border focus:border-primary transition-colors"
                     />
                   </div>
@@ -112,6 +141,9 @@ export const Contact = () => {
                     id="email" 
                     type="email" 
                     placeholder="john.doe@example.com"
+                    value={form.email}
+                    onChange={handleChange}
+                    required
                     className="border-border focus:border-primary transition-colors"
                   />
                 </div>
@@ -123,6 +155,8 @@ export const Contact = () => {
                   <Input 
                     id="subject" 
                     placeholder="Let's discuss an opportunity"
+                    value={form.subject}
+                    onChange={handleChange}
                     className="border-border focus:border-primary transition-colors"
                   />
                 </div>
@@ -135,13 +169,23 @@ export const Contact = () => {
                     id="message" 
                     placeholder="Tell me about your project or opportunity..."
                     rows={4}
+                    value={form.message}
+                    onChange={handleChange}
+                    required
                     className="border-border focus:border-primary transition-colors resize-none"
                   />
                 </div>
 
-                <Button type="submit" variant="hero" size="lg" className="w-full group">
+                {status === "success" && (
+                  <p className="text-green-500 text-sm">Message sent successfully!</p>
+                )}
+                {status === "error" && (
+                  <p className="text-red-500 text-sm">Something went wrong. Please try again.</p>
+                )}
+
+                <Button type="submit" variant="hero" size="lg" className="w-full group" disabled={status === "loading"}>
                   <Send className="mr-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  Send Message
+                  {status === "loading" ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </CardContent>
