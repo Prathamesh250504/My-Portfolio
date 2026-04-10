@@ -72,7 +72,13 @@ export const Hero = () => {
               </Button>
               
               <Button variant="glass" size="lg" className="group relative" onClick={() => {
-                window.open('https://drive.google.com/uc?export=download&id=1hcAJn5XgE9zNzvdhf8xF70uU4xjAtPfM', '_blank');
+                const a = document.createElement('a');
+                a.href = 'https://drive.google.com/uc?export=download&id=1hcAJn5XgE9zNzvdhf8xF70uU4xjAtPfM';
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
               }}>
                 <Download className="mr-2 group-hover:animate-bounce" />
                 Download Resume
