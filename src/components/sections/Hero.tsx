@@ -73,7 +73,7 @@ export const Hero = () => {
               
               <Button variant="glass" size="lg" className="group relative" onClick={() => {
                 const a = document.createElement('a');
-                a.href = 'https://drive.google.com/uc?export=download&id=1hcAJn5XgE9zNzvdhf8xF70uU4xjAtPfM';
+                a.href = 'https://drive.google.com/file/d/1hcAJn5XgE9zNzvdhf8xF70uU4xjAtPfM/view?usp=sharing';
                 a.target = '_blank';
                 a.rel = 'noopener noreferrer';
                 document.body.appendChild(a);
