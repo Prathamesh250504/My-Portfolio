@@ -126,7 +126,7 @@ async function sendNotification({ firstName, lastName, email, subject, message }
 
 app.use(cors({
   origin: process.env.ALLOWED_ORIGIN || "*",
-  methods: ["POST"],
+  methods: ["GET", "POST"],
 }));
 app.use(express.json());
 
