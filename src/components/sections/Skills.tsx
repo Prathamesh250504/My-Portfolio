@@ -55,9 +55,7 @@ export const Skills = () => {
       skills: [
         { name: "Git/GitHub", level: 85 },
         { name: "VS Code", level: 95 },
-        { name: "MongoDB", level: 80 },
-        { name: "Postman", level: 85 },
-        { name: "Linux", level: 70 }
+        { name: "MongoDB", level: 80 }
       ]
     }
   ];

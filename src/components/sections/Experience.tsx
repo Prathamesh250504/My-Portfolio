@@ -58,7 +58,7 @@ export const Experience = () => {
       ],
       technologies: ["Analytics", "Teamwork", "Reporting"],
       icon: Building,
-      certificateLink: "https://drive.google.com/file/d/1qNG83AMa5-hsaLAwiS5hPeeK3tKM7e3n/view?usp=drive_link",
+      certificateLink: "https://drive.google.com/file/d/1qNG83AMa5-hsaLAwiS5hPeeK3tKM7e3n/view?usp=sharing",
       offerLetterLink: "https://drive.google.com/file/d/1kTPp-JBLbj1lvSV2i_nQ0gapz55BV6i5/view?usp=sharing",
     },
     {
@@ -78,7 +78,7 @@ export const Experience = () => {
       ],
       technologies: ["AI", "LLM", "Machine Learning", "Content Generation", "Media Processing"],
       icon: Building,
-      certificateLink: "https://drive.google.com/file/d/1kYh_BUdOZFumb5gPFpfTMv7oQTKb0Gav/view?usp=drive_link",
+      certificateLink: "https://drive.google.com/file/d/1kYh_BUdOZFumb5gPFpfTMv7oQTKb0Gav/view?usp=sharing",
     }
   ];
 
