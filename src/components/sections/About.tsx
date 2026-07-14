@@ -7,7 +7,7 @@ export const About = () => {
       degree: "B.E. in Computer Science (AI & ML)",
       institution: "Gharda Institute of Technology",
       period: "2022 - 2026",
-      grade: "CGPA: 7.2/10",
+      grade: "CGPA: 7.4/10",
       icon: GraduationCap,
       current: true
     },

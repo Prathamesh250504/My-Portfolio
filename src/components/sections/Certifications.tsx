@@ -54,10 +54,28 @@ export const Certifications = () => {
       link: "https://drive.google.com/file/d/1nk5ebWCp1F3PPZwwYAER9tYisljjIQIV/view?usp=sharing",
     },
     {
+      title: "Introduction to Natural Language Processing",
+      issuer: "Infosys Springboard",
+      date: "June 19, 2025",
+      link: "https://drive.google.com/file/d/1yQM-en9ByopJ4LBrje_Pc_t8YdoC9Pmp/view?usp=sharing",
+    },
+    {
       title: "Introduction to Artificial Intelligence",
       issuer: "Infosys Springboard",
       date: "June 26, 2025",
       link: "https://drive.google.com/file/d/1mvtN9W2t4dFxnljN6d6iIPXdli1HrEZW/view?usp=sharing",
+    },
+    {
+      title: "Introduction to Deep Learning",
+      issuer: "Infosys Springboard",
+      date: "June 30, 2025",
+      link: "https://drive.google.com/file/d/1LQSsa_03mCOGAHJT27DKxBcZXCCnhwF8/view?usp=sharing",
+    },
+    {
+      title: "Principles of Generative AI Certication",
+      issuer: "Infosys Springboard",
+      date: "Oct 15, 2025",
+      link: "https://drive.google.com/file/d/1Xn8B5cq57kryQYkKwbDIVS4M_y_M9dEG/view?usp=sharing",
     },
   ];
 
