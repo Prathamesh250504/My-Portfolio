@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { MongoClient } from "mongodb";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import "dotenv/config";
 
 const app = express();
@@ -24,36 +24,14 @@ async function connectDB() {
   console.log("Connected to MongoDB Atlas");
 }
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  requireTLS: true,
-  family: 4, // force IPv4
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_APP_PASSWORD,
-  },
-  tls: {
-    rejectUnauthorized: false,
-  },
-});
-
-// Verify transporter on startup
-transporter.verify((error) => {
-  if (error) {
-    console.error("Gmail transporter verification failed:", error.message);
-  } else {
-    console.log("Gmail transporter is ready");
-  }
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 async function sendNotification({ firstName, lastName, email, subject, message }) {
   const fullName = `${firstName} ${lastName || ""}`.trim();
   const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
 
-  await transporter.sendMail({
-    from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
+  await resend.emails.send({
+    from: "Portfolio Contact <onboarding@resend.dev>",
     to: process.env.GMAIL_USER,
     replyTo: email,
     subject: `📬 New message from ${fullName}`,
@@ -69,7 +47,7 @@ async function sendNotification({ firstName, lastName, email, subject, message }
         <!-- Header -->
         <tr>
           <td style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:16px 16px 0 0;padding:40px 40px 30px;text-align:center;">
-            <div style="width:60px;height:60px;background:rgba(255,255,255,0.2);border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:28px;line-height:60px;">📩</div>
+            <div style="width:60px;height:60px;background:rgba(255,255,255,0.2);border-radius:50%;margin:0 auto 16px;font-size:28px;line-height:60px;text-align:center;">📩</div>
             <h1 style="margin:0;color:#ffffff;font-size:24px;font-weight:700;letter-spacing:-0.5px;">New Portfolio Message</h1>
             <p style="margin:8px 0 0;color:rgba(255,255,255,0.8);font-size:14px;">Someone reached out via your contact form</p>
           </td>
@@ -78,7 +56,6 @@ async function sendNotification({ firstName, lastName, email, subject, message }
         <!-- Body -->
         <tr>
           <td style="background:#ffffff;padding:36px 40px;">
-
             <!-- Sender card -->
             <table width="100%" cellpadding="0" cellspacing="0" style="background:#f8f9ff;border:1px solid #e8ecff;border-radius:12px;margin-bottom:28px;">
               <tr>
@@ -120,7 +97,6 @@ async function sendNotification({ firstName, lastName, email, subject, message }
                 </td>
               </tr>
             </table>
-
           </td>
         </tr>
 
