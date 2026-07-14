@@ -19,8 +19,8 @@ export const Skills = () => {
       color: "bg-blue-500",
       skills: [
         { name: "React.js", level: 85 },
-        { name: "Node.js", level: 80 },
-        { name: "MongoDB", level: 75 },
+        { name: "Node.js", level: 70 },
+        { name: "MongoDB", level: 85 },
         { name: "HTML/CSS", level: 90 },
         { name: "JavaScript", level: 85 }
       ]
@@ -32,7 +32,7 @@ export const Skills = () => {
       skills: [
         { name: "Python", level: 90 },
         { name: "JavaScript", level: 85 },
-        { name: "Java", level: 70 },
+        { name: "C/C++", level: 70 },
         { name: "SQL", level: 75 }
       ]
     },
@@ -55,7 +55,8 @@ export const Skills = () => {
       skills: [
         { name: "Git/GitHub", level: 85 },
         { name: "VS Code", level: 95 },
-        { name: "MongoDB", level: 80 }
+        { name: "MongoDB", level: 80 },
+        { name: "FastAPI", level: 85 }
       ]
     }
   ];
