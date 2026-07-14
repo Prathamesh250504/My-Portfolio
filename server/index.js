@@ -32,6 +32,15 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// Verify transporter on startup
+transporter.verify((error) => {
+  if (error) {
+    console.error("Gmail transporter verification failed:", error.message);
+  } else {
+    console.log("Gmail transporter is ready");
+  }
+});
+
 async function sendNotification({ firstName, lastName, email, subject, message }) {
   const fullName = `${firstName} ${lastName || ""}`.trim();
   const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
@@ -148,9 +157,10 @@ app.post("/api/contact", async (req, res) => {
     });
 
     // Send email notification (non-blocking — don't fail the request if email fails)
-    sendNotification({ firstName, lastName, email, subject, message }).catch((err) =>
-      console.error("Email notification failed:", err)
-    );
+    sendNotification({ firstName, lastName, email, subject, message }).catch((err) => {
+      console.error("Email notification failed:", err.message);
+      console.error("Full error:", JSON.stringify(err, null, 2));
+    });
 
     res.status(201).json({ success: true, message: "Message sent successfully!" });
   } catch (err) {
