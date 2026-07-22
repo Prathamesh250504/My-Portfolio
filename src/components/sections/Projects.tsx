@@ -59,6 +59,7 @@ export const Projects = () => {
       type: "AI / Full-Stack Web Application",
       status: "Completed",
       github: "https://github.com/Prathamesh250504/Prathamesh250504-visage-ai-prathamesh-and-sanika",
+      liveUrl: "https://visage-ai.netlify.app//",
       featured: true
     },
     {
